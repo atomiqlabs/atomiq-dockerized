@@ -1,5 +1,5 @@
 FROM alpine:3.21 as builder
-RUN apk --no-cache build-base cmake linux-headers pkgconf python3 libevent-dev boost-dev zeromq-dev sqlite-dev
+RUN apk --no-cache add build-base cmake linux-headers pkgconf python3 libevent-dev boost-dev zeromq-dev sqlite-dev
 WORKDIR /src
 ADD .src .
 RUN cmake -B build
