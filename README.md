@@ -6,7 +6,7 @@
 
 ## Preparations
 
-### Installing docker & docker-compose
+### Installing docker
 Install docker
 ~~~
 sudo apt update
@@ -15,11 +15,12 @@ sudo apt install docker.io
 
 ### Setup firewall
 
-Open ports 22, 80 & 4000 in the firewall
+Open ports 22, 80, 443 & 8443 in the firewall
 ~~~
 sudo ufw allow 22
 sudo ufw allow 80
-sudo ufw allow 4000
+sudo ufw allow 443
+sudo ufw allow 8443
 sudo ufw enable
 ~~~
 
