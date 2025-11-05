@@ -3,7 +3,7 @@ RUN apk --no-cache add build-base cmake linux-headers pkgconf python3 libevent-d
 WORKDIR /src
 ADD .src .
 RUN cmake -B build -DENABLE_IPC=OFF
-RUN cmake --build build -DENABLE_IPC=OFF
+RUN cmake --build build
 RUN cmake --install build
 RUN strip /usr/local/bin/bitcoind /usr/local/bin/bitcoin-cli
 
