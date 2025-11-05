@@ -21,15 +21,15 @@ services:
       - lnd-storage-testnet:/mnt/data
       - ./config-testnet:/mnt/config:ro
       - ./share-testnet:/mnt/share
-#  btcrelay-testnet:
-#    restart: unless-stopped
-#    image: atomiqlabs/btcrelay:latest
-#    ports:
-#      - "127.0.0.1:40120:40120"
-#    volumes:
-#      - btcrelay-storage-testnet:/mnt/storage
-#      - ./config-testnet/relayer:/mnt/config:ro
-#      - ./share-testnet:/mnt/share
+  btcrelay-testnet:
+    restart: unless-stopped
+    image: atomiqlabs/btcrelay:latest
+    ports:
+      - "127.0.0.1:40120:40120"
+    volumes:
+      - btcrelay-storage-testnet:/mnt/storage
+      - ./config-testnet/relayer:/mnt/config:ro
+      - ./share-testnet:/mnt/share
   intermediary-testnet:
     restart: unless-stopped
     image: atomiqlabs/intermediary:latest

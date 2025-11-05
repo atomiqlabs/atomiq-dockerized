@@ -5,6 +5,7 @@ ZMQ_PORT: 49332
 BTC_HOST: "bitcoind-testnet"
 BTC_RPC_USERNAME: "user1"
 BTC_RPC_PASSWORD: "ThisIsAPassword"
+BTC_NETWORK: "testnet"
 
 NOSTR_RELAYS: ["wss://lightningrelay.com", "wss://relay.damus.io", "wss://nostr.einundzwanzig.space", "wss://relay01.lnfi.network/", "wss://njump.me/", "wss://fiatjaf.com/"]
 
