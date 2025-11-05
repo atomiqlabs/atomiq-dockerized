@@ -8,19 +8,20 @@ BTC_NETWORK: "mainnet"
 
 NOSTR_RELAYS: ["wss://lightningrelay.com", "wss://relay.damus.io", "wss://nostr.einundzwanzig.space", "wss://relay01.lnfi.network/", "wss://njump.me/", "wss://fiatjaf.com/"]
 
+#Enable/disable individual watchtowers
+WATCHTOWERS:
+  LEGACY_SWAPS: true
+  SPV_SWAPS: true
+  HTLC_SWAPS: true
+
+#CLI - command line interface config
+CLI_ADDRESS: "0.0.0.0"
+CLI_PORT: 40220
+
 #Solana config
 SOLANA:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Solana RPC URL to use, it is recommended to use a dedicated RPC endpoint from e.g. Helius (recommended), Quicknode, etc.
   RPC_URL: "https://api.mainnet-beta.solana.com"
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40220
   #File with the wallet mnemonic seed
   MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
   #Fee settings
@@ -32,19 +33,10 @@ SOLANA:
   #  ENDPOINT: "https://frankfurt.mainnet.block-engine.jito.wtf/api/v1/transactions"
 
 STARKNET:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Starknet RPC URL to use, it is recommended to use a dedicated RPC endpoint
   RPC_URL: "https://starknet.api.onfinality.io/public/rpc/v0_9"
   #Can also optionally specify an additional WS URL - allows for faster swap processing
   #WS_URL: ""
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40230
   #Maximum gas price
   MAX_L1_FEE_GWEI: 20000000
   MAX_L2_FEE_GWEI: 4000000
@@ -55,17 +47,8 @@ STARKNET:
   MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
 
 BOTANIX:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Botanix RPC URL, can either be an http or ws RPC
   RPC_URL: "wss://rpc.botanixlabs.com/ws"
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40240
   #Maximum block range that the underlying RPC provider supports
   MAX_LOGS_BLOCK_RANGE: 900
   #Fees

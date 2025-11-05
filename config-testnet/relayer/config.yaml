@@ -9,19 +9,20 @@ BTC_NETWORK: "testnet"
 
 NOSTR_RELAYS: ["wss://lightningrelay.com", "wss://relay.damus.io", "wss://nostr.einundzwanzig.space", "wss://relay01.lnfi.network/", "wss://njump.me/", "wss://fiatjaf.com/"]
 
+#Enable/disable individual watchtowers
+WATCHTOWERS:
+  LEGACY_SWAPS: true
+  SPV_SWAPS: true
+  HTLC_SWAPS: true
+
+#CLI - command line interface config
+CLI_ADDRESS: "0.0.0.0"
+CLI_PORT: 40120
+
 #Solana config
 SOLANA:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Solana RPC URL to use, it is recommended to use a dedicated RPC endpoint from e.g. Helius (recommended), Quicknode, etc.
   RPC_URL: "https://api.devnet.solana.com"
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40120
   #Fee settings
   MAX_FEE_MICRO_LAMPORTS: 250000
   STATIC_TIP: "10000"
@@ -30,17 +31,10 @@ SOLANA:
 
 #STARKNET:
 #  #Enable/disable individual watchtowers
-#  WATCHTOWERS:
-#    LEGACY_SWAPS: true
-#    SPV_SWAPS: true
-#    HTLC_SWAPS: true
 #  #Starknet RPC URL to use, it is recommended to use a dedicated RPC endpoint
 #  RPC_URL: ""
 #  #Can also optionally specify an additional WS URL - allows for faster swap processing
 #  #WS_URL: ""
-#  #CLI - command line interface config
-#  CLI_ADDRESS: "0.0.0.0"
-#  CLI_PORT: 40130
 #  #Maximum gas price
 #  MAX_L1_FEE_GWEI: 20000000
 #  MAX_L2_FEE_GWEI: 4000000
@@ -51,19 +45,10 @@ SOLANA:
 #  MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
 
 BOTANIX:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Botanix RPC URL, can either be an http or ws RPC
   RPC_URL: "https://node.botanixlabs.dev"
   #Maximum block range that the underlying RPC provider supports
   MAX_LOGS_BLOCK_RANGE: 900
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40140
   #Fees
   MAX_FEE_GWEI: 2
   FEE_TIP_GWEI: 0.001
@@ -75,19 +60,10 @@ BOTANIX:
 
 #Alpen RPC
 ALPEN:
-  #Enable/disable individual watchtowers
-  WATCHTOWERS:
-    LEGACY_SWAPS: true
-    SPV_SWAPS: true
-    HTLC_SWAPS: true
-
   #Alpen RPC URL, can either be an http or ws RPC
   RPC_URL: "https://rpc.testnet.alpenlabs.io"
   #Maximum block range that the underlying RPC provider supports
   MAX_LOGS_BLOCK_RANGE: 900
-  #CLI - command line interface config
-  CLI_ADDRESS: "0.0.0.0"
-  CLI_PORT: 40160
   #Fees
   MAX_FEE_GWEI: 2
   FEE_TIP_GWEI: 0.001
