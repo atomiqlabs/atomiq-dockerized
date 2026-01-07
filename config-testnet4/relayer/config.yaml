@@ -7,7 +7,7 @@ BTC_RPC_USERNAME: "user1"
 BTC_RPC_PASSWORD: "ThisIsAPassword"
 BTC_NETWORK: "testnet4"
 
-NOSTR_RELAYS: ["wss://lightningrelay.com", "wss://relay.damus.io", "wss://nostr.einundzwanzig.space", "wss://relay01.lnfi.network/", "wss://njump.me/", "wss://fiatjaf.com/"]
+NOSTR_RELAYS: ["wss://relay.damus.io", "wss://nostr.einundzwanzig.space", "wss://relay01.lnfi.network/", "wss://njump.me/", "wss://fiatjaf.com/"]
 
 #Enable/disable individual watchtowers
 WATCHTOWERS:
@@ -41,7 +41,21 @@ CITREA:
   #Fees
   MAX_FEE_GWEI: 2
   FEE_TIP_GWEI: 0.001
-  #Botanix chain
+  #Citrea chain
+  CHAIN: "TESTNET4"
+
+  #File with wallet mnemonic seed
+  MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
+
+GOAT:
+  #GOAT RPC URL, can either be an http or ws RPC
+  RPC_URL: "https://rpc.testnet3.goat.network"
+  #Maximum block range that the underlying RPC provider supports
+  MAX_LOGS_BLOCK_RANGE: 900
+  #Fees
+  MAX_FEE_GWEI: 2
+  FEE_TIP_GWEI: 0.005
+  #GOAT chain
   CHAIN: "TESTNET4"
 
   #File with wallet mnemonic seed
