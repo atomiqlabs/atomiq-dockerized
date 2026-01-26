@@ -191,6 +191,13 @@ ASSETS:
   PBTC:
     chains:
       GOAT:
+        address: "0xdA97429ea2082334C63813f092B6A6209bfC4DEb"
+        decimals: 18
+        spvVaultMultiplier: 1000000000
+    pricing: "$fixed-100000000"
+  PBTC_DEV:
+    chains:
+      GOAT:
         address: "0x42Dff13a9D6C33f89311C188F6eA780D00287F17"
         decimals: 18
         spvVaultMultiplier: 1000000000
