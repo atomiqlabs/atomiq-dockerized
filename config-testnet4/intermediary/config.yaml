@@ -59,6 +59,26 @@ GOAT:
   #Citrea quotes timeout
   AUTHORIZATION_TIMEOUT: 60
 
+#Alpen RPC
+ALPEN:
+  #If the LP node has below this amount it will stop processing new swaps
+  MIN_NATIVE_RESERVE: 0.0002
+  #Alpen RPC URL, can either be an http or ws RPC
+  RPC_URL: "https://rpc.testnet.alpenlabs.io"
+  #Maximum block range that the underlying RPC provider supports
+  MAX_LOGS_BLOCK_RANGE: 900
+  #Fees
+  MAX_FEE_GWEI: 2
+  FEE_TIP_GWEI: 0.001
+  #Alpen chain
+  CHAIN: "TESTNET4"
+
+  #File with wallet mnemonic seed
+  MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
+
+  #Botanix quotes timeout
+  AUTHORIZATION_TIMEOUT: 60
+
 #Required APY option premium to be paid by the users as security deposit with BTC -> Solana swaps
 SECURITY_DEPOSIT_APY: 20
 
@@ -105,6 +125,7 @@ LND:
 #    STARKNET: 5
 #    CITREA: 0.0001
 #    GOAT: 0.00002
+#    ALPEN: 0.00002
 #
 #  MAX_INFLIGHT_SWAPS: 100
 #  MAX_INFLIGHT_AUTO_SWAPS: 20
@@ -151,11 +172,20 @@ ONCHAIN_SPV:
     STARKNET: 5
     CITREA: 0.0001
     GOAT: 0.00002
+    ALPEN: 0.00002
 
   MAX_INFLIGHT_SWAPS: 100
 
 #Tradable assets setup
 ASSETS:
+  ABTC:
+    chains:
+      ALPEN:
+        address: "0x0000000000000000000000000000000000000000"
+        decimals: 18
+        securityDepositAllowed: true
+        spvVaultMultiplier: 1000000000
+    pricing: "$fixed-100000000"
   CBTC:
     chains:
       CITREA:
