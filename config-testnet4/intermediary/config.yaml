@@ -94,6 +94,7 @@ BITCOIND:
 #LND RPC configuration
 LND:
   MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
+  MNEMONIC_BIRTHDAY_FILE: "/mnt/share/wallet/mnemonic-birthday.txt"
   WALLET_PASSWORD_FILE: "/mnt/share/wallet/password.txt"
   CERT_FILE: "/mnt/share/lnd/tls.cert"
   MACAROON_FILE: "/mnt/share/lnd/admin.macaroon"

@@ -39,5 +39,6 @@ if [ "$checksum" != "${entropy:128:4}" ] ; then
 else
 	echo "Wallet successfully recovered from the mnemonic phrase!"
 	printf "${mnemonic[*]}" > $1
+	printf "0" > $2
 	exit 0
 fi

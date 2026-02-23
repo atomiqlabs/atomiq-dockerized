@@ -30,14 +30,17 @@ if [ "$environment" == "mainnet" ]; then
 	mkdir share
 	mkdir share/wallet
 	mnemonicFile="share/wallet/mnemonic.txt"
+	birthdayFile="share/wallet/mnemonic-birthday.txt"
 elif [ "$environment" == "testnet" ]; then
 	mkdir share-testnet
 	mkdir share-testnet/wallet
 	mnemonicFile="share-testnet/wallet/mnemonic.txt"
+	birthdayFile="share-testnet/wallet/mnemonic-birthday.txt"
 else
 	mkdir share-testnet4
 	mkdir share-testnet4/wallet
 	mnemonicFile="share-testnet4/wallet/mnemonic.txt"
+	birthdayFile="share-testnet4/wallet/mnemonic-birthday.txt"
 fi
 
 if [ -f "$mnemonicFile" ]; then
@@ -54,10 +57,10 @@ fi
 
 if [ "$wallet" == "new" ]; then
 	# Call gen-mnemonic.bash for creating a new one
-	bash gen-mnemonic.bash "${mnemonicFile}"
+	bash gen-mnemonic.bash "${mnemonicFile}" "${birthdayFile}"
 else
 	# Call recover-mnemonic.bash for existing seed
-	bash recover-mnemonic.bash "${mnemonicFile}"
+	bash recover-mnemonic.bash "${mnemonicFile}" "${birthdayFile}"
 fi
 
 if [ "$environment" == "mainnet" ]; then

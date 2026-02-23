@@ -31,3 +31,4 @@ if [ "$isSeedStored" != "yes" ]; then
 fi
 
 printf "${seed[*]}" > $1
+printf "$(date +%s)" > $2
