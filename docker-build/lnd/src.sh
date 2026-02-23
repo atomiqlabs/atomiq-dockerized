@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION="v0.19.3-beta"
+VERSION="v0.20.1-beta"
 SRC="https://github.com/lightningnetwork/lnd/archive/refs/tags/${VERSION}.tar.gz"
 echo $SRC
 wget -O package.tar.gz $SRC
