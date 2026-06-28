@@ -27,21 +27,17 @@ if [ "$wallet" != "new" ] && [ "$wallet" != "recover" ]; then
 fi
 
 if [ "$environment" == "mainnet" ]; then
-	mkdir share
-	mkdir share/wallet
-	mnemonicFile="share/wallet/mnemonic.txt"
-	birthdayFile="share/wallet/mnemonic-birthday.txt"
+  shareDirectory="share"
 elif [ "$environment" == "testnet" ]; then
-	mkdir share-testnet
-	mkdir share-testnet/wallet
-	mnemonicFile="share-testnet/wallet/mnemonic.txt"
-	birthdayFile="share-testnet/wallet/mnemonic-birthday.txt"
+  shareDirectory="share-testnet"
 else
-	mkdir share-testnet4
-	mkdir share-testnet4/wallet
-	mnemonicFile="share-testnet4/wallet/mnemonic.txt"
-	birthdayFile="share-testnet4/wallet/mnemonic-birthday.txt"
+  shareDirectory="share-testnet4"
 fi
+
+mkdir "${shareDirectory}"
+mkdir "${shareDirectory}/wallet"
+mnemonicFile="${shareDirectory}/wallet/mnemonic.txt"
+birthdayFile="${shareDirectory}/wallet/mnemonic-birthday.txt"
 
 if [ -f "$mnemonicFile" ]; then
 	read -p "Mnemonic already found, are you sure you want to override it? (yes/no) " overrideMnemonic
@@ -63,19 +59,20 @@ else
 	bash recover-mnemonic.bash "${mnemonicFile}" "${birthdayFile}"
 fi
 
-if [ "$environment" == "mainnet" ]; then
-	passwordFile="share/wallet/password.txt"
-elif [ "$environment" == "testnet" ]; then
-	passwordFile="share-testnet/wallet/password.txt"
-else
-	passwordFile="share-testnet4/wallet/password.txt"
-fi
+passwordFile="${shareDirectory}/wallet/password.txt"
 
 if [ ! -f "$passwordFile" ]; then
     echo "Generated new LND wallet password!"
 	lndPassword=$(tr -dc 'A-F0-9' < /dev/urandom | head -c64)
 	printf "${lndPassword}" > "${passwordFile}"
 fi
+
+chmod 750 "${shareDirectory}"
+chmod 750 "${shareDirectory}/wallet"
+chmod 640 "${passwordFile}"
+chmod 640 "${mnemonicFile}"
+chmod 640 "${birthdayFile}"
+echo "Permissions limited to user R/W and group read!"
 
 echo "Setup complete! Running docker-compose..."
 
