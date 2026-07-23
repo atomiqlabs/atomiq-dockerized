@@ -1,6 +1,6 @@
 FROM node:24.9.0-alpine3.21 as builder
 RUN apk --no-cache add curl
-RUN npm install -g typescript
+RUN npm install -g typescript@5
 RUN curl -sf https://gobinaries.com/tj/node-prune | sh
 WORKDIR /src
 ADD .src .
