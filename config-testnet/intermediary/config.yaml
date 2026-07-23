@@ -104,6 +104,8 @@ BITCOIND:
   RPC_USERNAME: "user1"
   RPC_PASSWORD: "ThisIsAPassword"
   NETWORK: "testnet"
+  #Additional fee to pay, above the estimated sats/vB fee
+  ADD_NETWORK_FEE: 5
 
 #LND RPC configuration
 LND:
@@ -115,8 +117,8 @@ LND:
   HOST: "lnd-testnet"
   PORT: 20009
 
-#LN setup, uncomment these lines if you want to enable lightning network support for your node
-#LN:
+#Lightning Network setup (chain -> BTC Lightning), uncomment these lines if you want to enable this swap direction
+#TO_BTCLN:
 #  #Total swap fee is calculated as BASE_FEE + {SWAP_VALUE}*FEE_PERCENTAGE
 #  #Base fee (in BTC) to be paid by every swap
 #  BASE_FEE: 0.00000010
@@ -132,6 +134,22 @@ LND:
 #  ALLOW_NON_PROBABLE_SWAPS: true
 #  #Allow lightning network swaps where the LN invoice has a very short expiry
 #  ALLOW_LN_SHORT_EXPIRY: true
+#
+#  MAX_INFLIGHT_SWAPS: 100
+
+#Lightning Network setup (BTC Lightning -> chain), uncomment these lines if you want to enable this swap direction
+#FROM_BTCLN:
+#  #Total swap fee is calculated as BASE_FEE + {SWAP_VALUE}*FEE_PERCENTAGE
+#  #Base fee (in BTC) to be paid by every swap
+#  BASE_FEE: 0.00000010
+#  #Fee (in %) to be charged on the swaps
+#  FEE_PERCENTAGE: 0.3
+#
+#  #Minimum swappable amount in BTC (for lightning network swaps)
+#  MIN: 0.00001000
+#  #Maximum swappable amount in BTC (for lightning network swaps)
+#  MAX: 0.01000000
+#
 #  #Set expiration for lightning swaps invoices
 #  INVOICE_EXPIRY_SECONDS: 90
 #
@@ -146,8 +164,8 @@ LND:
 #  MAX_INFLIGHT_SWAPS: 100
 #  MAX_INFLIGHT_AUTO_SWAPS: 20
 
-#On-chain setup
-ONCHAIN:
+#On-chain setup (chain -> BTC)
+TO_BTC:
   #Total swap fee is calculated as BASE_FEE + {SWAP_VALUE}*FEE_PERCENTAGE
   #Base fee (in BTC) to be paid by every swap
   BASE_FEE: 0.00000100
@@ -163,14 +181,13 @@ ONCHAIN:
   # fee to accomodate for the possible fee rate increases in the near future 
   NETWORK_FEE_ADD_PERCENTAGE: 25
 
-  #Additional fee to pay, above the estimated sats/vB fee
-  ADD_NETWORK_FEE: 5
-
   MAX_INFLIGHT_SWAPS: 100
 
-#On-chain setup BTC -> Starknet/EVM (new protocol - not BTC -> Solana!!!)
-ONCHAIN_SPV:
+#On-chain setup (BTC -> chain)
+FROM_BTC:
   MNEMONIC_FILE: "/mnt/share/wallet/mnemonic.txt"
+  #Use legacy swaps only for chains that do not support the newer SPV vault protocol
+  LEGACY_SWAPS: "legacy_chains_only"
 
   #Total swap fee is calculated as BASE_FEE + {SWAP_VALUE}*FEE_PERCENTAGE
   #Base fee (in BTC) to be paid by every swap
