@@ -5,3 +5,5 @@ plugins-testnet/
 images/
 images.tar.gz
 docker-build/*/.src/
+.idea/
+atomiq-node.tar.gz
